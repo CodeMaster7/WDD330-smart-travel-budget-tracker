@@ -7,6 +7,7 @@
     "main": "main.js",
     "scripts": {
         "dev": "vite",
+        "start": "vite preview",
         "build": "vite build --emptyOutDir",
         "lint": "eslint *.js src/**/*.js",
         "format": "prettier --ignore-path ./.gitignore --write .",
