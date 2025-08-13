@@ -1,0 +1,12 @@
+/* 
+   Purpose: desktop overrides loaded via <link media="(min-width: 1024px)">
+*/
+
+.app__section {
+    max-width: 1140px;
+}
+
+.site-header__nav {
+    display: flex;
+    gap: 1rem;
+}

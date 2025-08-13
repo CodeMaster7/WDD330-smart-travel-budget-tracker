@@ -1,0 +1,12 @@
+{
+    "messages": [
+        {
+            "message": "Welcome to Smart Travel Budget Tracker!",
+            "scroll": true
+        },
+        {
+            "message": "Tip: Set your home currency in Settings.",
+            "scroll": false
+        }
+    ]
+}
