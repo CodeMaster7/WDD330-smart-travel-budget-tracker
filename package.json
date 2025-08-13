@@ -6,8 +6,7 @@
     "type": "module",
     "main": "main.js",
     "scripts": {
-        "dev": "vite",
-        "start": "vite preview",
+        "start": "vite",
         "build": "vite build --emptyOutDir",
         "lint": "eslint *.js src/**/*.js",
         "format": "prettier --ignore-path ./.gitignore --write .",
