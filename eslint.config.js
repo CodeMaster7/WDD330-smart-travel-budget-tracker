@@ -53,6 +53,8 @@ export default [
                 alert: 'readonly',
                 FormData: 'readonly',
                 fetch: 'readonly',
+                localStorage: 'readonly',
+                URLSearchParams: 'readonly',
                 module: 'readonly',
                 require: 'readonly',
                 process: 'readonly',

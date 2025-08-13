@@ -1,4 +1,4 @@
-import { alertMessage } from './utils.mjs';
+import { alertMessage, assetUrl } from './utils.mjs';
 
 export default class Alert {
     constructor(jsonPath) {
@@ -8,7 +8,9 @@ export default class Alert {
 
     async init() {
         try {
-            const response = await fetch(this.jsonPath);
+            const response = await fetch(
+                assetUrl(this.jsonPath.replace(/^\//, '')),
+            );
             if (!response.ok) throw new Error(`Alert: ${response.status}`);
             const data = await response.json();
 
