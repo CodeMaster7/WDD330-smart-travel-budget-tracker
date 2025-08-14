@@ -18,3 +18,27 @@
     grid-column: 1 / -1;
     justify-self: start;
 }
+
+/* Limit alert width on tablet to avoid full-width ribbons */
+.alert {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+/* Tablet nav: show horizontal, hide burger, keep dark background */
+.site-header__menu {
+    display: none;
+}
+
+.site-header__nav {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: var(--space-2);
+    overflow: visible;
+}
+
+.site-header__link {
+    display: inline-block;
+}
