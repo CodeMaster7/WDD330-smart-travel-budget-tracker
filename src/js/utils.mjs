@@ -79,11 +79,10 @@ export function alertMessage(message, scroll = true) {
     const alert = document.createElement('div');
     alert.classList.add('alert');
 
-    alert.innerHTML = ` <span class="alert-message">$ {
-        message
-    }
-
-    </span><button type="button"class="alert-close">X</button>`;
+    alert.innerHTML = `
+        <span class="alert-message">${message}</span>
+        <button type="button" class="alert-close">X</button>
+    `;
     const main = document.querySelector('main') || document.body;
 
     alert.addEventListener('click', function (e) {
@@ -112,12 +111,20 @@ export async function loadHeaderFooter() {
     const footerElement = document.getElementById('main-footer');
     if (headerElement) renderWithTemplate(headerTemplate, headerElement);
     if (footerElement) renderWithTemplate(footerTemplate, footerElement);
+
+    // Wire mobile nav toggle after header renders
+    const btn = document.getElementById('nav-menu');
+    const nav = document.getElementById('nav');
+    if (btn && nav) {
+        btn.addEventListener('click', () => {
+            nav.classList.toggle('site-header__nav--open');
+        });
+    }
 }
 
 // Build a URL that respects the deployed base path set by Vite
 export function assetUrl(path) {
-    const base =
-        (import.meta && import.meta.env && import.meta.env.BASE_URL) || '/';
-    const clean = path.startsWith('/') ? path.slice(1) : path;
-    return `${base}${clean}`;
+    const baseUrl = import.meta?.env?.BASE_URL || '/';
+    const relative = path.startsWith('/') ? path.slice(1) : path;
+    return `${baseUrl}${relative}`;
 }
