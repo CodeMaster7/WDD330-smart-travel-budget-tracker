@@ -1,4 +1,4 @@
-/* 
+/*
    Purpose: desktop overrides loaded via <link media="(min-width: 1024px)">
 */
 
@@ -9,4 +9,23 @@
 .site-header__nav {
     display: flex;
     gap: 1rem;
+}
+
+/* Keep alert readable on wide screens */
+.alert {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Desktop nav: horizontal, no burger, same dark background */
+.site-header__menu {
+    display: none;
+}
+
+.site-header__nav {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
 }
