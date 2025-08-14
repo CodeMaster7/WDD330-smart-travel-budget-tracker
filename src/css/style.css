@@ -40,24 +40,52 @@ main {
 .site-header {
     background: white;
     border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
 
-.site-header__nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: var(--space-2);
-}
-
-.site-header__link {
-    color: var(--color-secondary);
-    text-decoration: none;
+.site-header__menu {
+    display: inline-block;
+    margin: var(--space-2);
+    background: transparent;
+    border: 1px solid #e5e7eb;
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius);
 }
 
+.site-header__nav {
+    display: none; /* hidden by default on mobile, toggled by menu */
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    padding: var(--space-2) 0;
+    width: 100%;
+    background: #1f2937; /* darker contrast */
+}
+.site-header__nav--open {
+    display: flex;
+    flex-direction: column; /* vertical list on mobile */
+}
+.site-header__nav::after {
+    /* extra end-space so the last link is not clipped on iOS */
+    content: "";
+    flex: 0 0 var(--space-2);
+}
+.site-header__nav::-webkit-scrollbar {
+    display: none;
+}
+
+.site-header__link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    white-space: nowrap;
+    font-size: 1rem;
+    display: block;
+}
+
 .site-header__link:hover {
-    background: rgba(30, 144, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .app__section {
