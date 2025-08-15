@@ -106,12 +106,34 @@ export async function loadHeaderFooter() {
     if (footerElement) renderWithTemplate(footerTemplate, footerElement);
 
     // Wire mobile nav toggle after header renders
+    setupMobileNav();
+}
+
+// Setup mobile navigation with proper event handling
+function setupMobileNav() {
     const btn = document.getElementById('nav-menu');
     const nav = document.getElementById('nav');
 
     if (btn && nav) {
-        btn.addEventListener('click', () => {
+        // Remove any existing listeners to prevent duplicates
+        btn.removeEventListener('click', btn._navToggleHandler);
+
+        // Create a new handler function
+        btn._navToggleHandler = () => {
             nav.classList.toggle('site-header__nav--open');
+        };
+
+        // Add the new listener
+        btn.addEventListener('click', btn._navToggleHandler);
+
+        // Ensure menu starts closed
+        nav.classList.remove('site-header__nav--open');
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                nav.classList.remove('site-header__nav--open');
+            }
         });
     }
 }
