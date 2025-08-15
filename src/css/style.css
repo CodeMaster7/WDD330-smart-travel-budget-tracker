@@ -102,7 +102,7 @@ body {
 }
 
 .site-header__nav {
-  display: none;
+  display: none !important; /* Force hidden by default */
   flex-direction: column;
   position: absolute;
   top: 100%;
@@ -114,7 +114,7 @@ body {
 }
 
 .site-header__nav--open {
-  display: flex;
+  display: flex !important; /* Force visible when open */
 }
 
 .site-header__link {
