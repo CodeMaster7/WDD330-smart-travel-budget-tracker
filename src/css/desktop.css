@@ -1,45 +1,42 @@
 /*
-   Purpose: desktop overrides loaded via <link media="(min-width: 1024px)">
+   Purpose: desktop overrides
 */
 
-.app__section {
-    max-width: 1140px;
-}
+@media (min-width: 1024px) {
+    .app__section {
+        max-width: 1140px;
+    }
 
-.site-header__nav {
-    display: flex;
-    gap: 1rem;
-}
+    /* Keep alert readable on wide screens */
+    .alert {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
 
-/* Keep alert readable on wide screens */
-.alert {
-    max-width: 1140px;
-    margin: 0 auto;
-}
+    /* Desktop nav: horizontal, no burger, same dark background */
+    .site-header__menu {
+        display: none;
+    }
 
-/* Desktop nav: horizontal, no burger, same dark background */
-.site-header__menu {
-    display: none;
-}
+    .site-header__nav {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        box-shadow: none;
+    }
 
-.site-header__nav {
-    display: flex;
-    flex-direction: row;
-    position: static;
-    top: auto;
-    left: auto;
-    right: auto;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 1rem;
-    box-shadow: none;
-}
+    /* Override mobile classes for desktop - higher specificity */
+    .site-header .site-header__nav--mobile {
+        display: none;
+    }
 
-/* Override mobile classes for desktop - higher specificity */
-.site-header .site-header__nav--mobile {
-    display: none;
-}
-
-.site-header .site-header__nav--desktop {
-    display: flex;
+    .site-header .site-header__nav--desktop {
+        display: flex;
+    }
 }

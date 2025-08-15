@@ -1,59 +1,61 @@
 /*
-   Purpose: tablet breakpoint overrides loaded via <link media="(min-width: 768px)">
+   Purpose: tablet breakpoint overrides
 */
 
-.app__section {
-    max-width: 920px;
-}
+@media (min-width: 768px) {
+    .app__section {
+        max-width: 920px;
+    }
 
-.trip-form {
-    grid-template-columns: 1fr 1fr;
-}
+    .trip-form {
+        grid-template-columns: 1fr 1fr;
+    }
 
-.trip-form__label {
-    display: block;
-}
+    .trip-form__label {
+        display: block;
+    }
 
-.trip-form__submit {
-    grid-column: 1 / -1;
-    justify-self: start;
-}
+    .trip-form__submit {
+        grid-column: 1 / -1;
+        justify-self: start;
+    }
 
-/* Limit alert width on tablet to avoid full-width ribbons */
-.alert {
-    max-width: 920px;
-    margin: 0 auto;
-}
+    /* Limit alert width on tablet to avoid full-width ribbons */
+    .alert {
+        max-width: 920px;
+        margin: 0 auto;
+    }
 
-/* Tablet nav: show horizontal, hide burger, keep dark background */
-.site-header__menu {
-    display: none;
-}
+    /* Tablet nav: show horizontal, hide burger, keep dark background */
+    .site-header__menu {
+        display: none;
+    }
 
-.site-header__nav {
-    display: flex;
-    flex-direction: row;
-    position: static;
-    top: auto;
-    left: auto;
-    right: auto;
-    align-items: center;
-    gap: 1rem;
-    padding: var(--space-2);
-    overflow: visible;
-    box-shadow: none;
-}
+    .site-header__nav {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        align-items: center;
+        gap: 1rem;
+        padding: var(--space-2);
+        overflow: visible;
+        box-shadow: none;
+    }
 
-/* Override mobile classes for tablet - higher specificity */
-.site-header .site-header__nav--mobile {
-    display: none;
-}
+    /* Override mobile classes for tablet - higher specificity */
+    .site-header .site-header__nav--mobile {
+        display: none;
+    }
 
-.site-header .site-header__nav--desktop {
-    display: flex;
-}
+    .site-header .site-header__nav--desktop {
+        display: flex;
+    }
 
-.site-header__link {
-    display: inline-block;
-    white-space: nowrap;
+    .site-header__link {
+        display: inline-block;
+        white-space: nowrap;
+    }
 }
