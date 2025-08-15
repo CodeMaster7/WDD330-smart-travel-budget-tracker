@@ -4,8 +4,6 @@ import { loadHeaderFooter } from './utils.mjs';
 import Alert from './Alert.js';
 import { Router } from './modules/router.mjs';
 
-// CSS files are loaded via link tags in HTML for proper media query processing
-
 /**
  * Initialize the application
  */

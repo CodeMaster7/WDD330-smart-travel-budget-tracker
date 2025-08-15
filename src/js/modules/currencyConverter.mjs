@@ -1,7 +1,7 @@
 /**
  * Currency Converter Module
  * Handles currency conversion UI and logic
- * Uses Single Responsibility Principle - this module only handles currency conversion
+ * this module only handles currency conversion
  */
 
 import { convertCurrency, getAvailableCurrencies } from './apiService.mjs';

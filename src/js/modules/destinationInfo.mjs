@@ -1,7 +1,7 @@
 /**
  * Destination Info Module
  * Displays country information using REST Countries API
- * Uses Single Responsibility Principle - this module only handles destination information
+ * this module only handles destination information
  */
 
 import {

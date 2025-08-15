@@ -1,7 +1,7 @@
 /**
  * API Service Module
  * Handles all external API calls for the Smart Travel Budget Tracker
- * Uses Single Responsibility Principle - this module only handles API communication
+ * this module only handles API communication
  */
 
 // API Configuration

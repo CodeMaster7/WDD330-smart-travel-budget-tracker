@@ -25,6 +25,37 @@ A comprehensive web application for planning trips, tracking expenses, and manag
 - **Destination Images**: Beautiful placeholder images for each destination
 - **Smart Search**: Auto-search with debouncing and country code detection
 
+#### 📊 Trip Management
+
+- **Create Trips**: Add new trips with name, destination, dates, and budget
+- **Edit Trips**: Update trip details including name, destination, dates, and budget
+- **Trip Cards**: Visual trip cards showing budget progress and spending
+- **Budget Tracking**: Real-time budget monitoring with progress bars
+- **Trip Actions**: Edit and delete trips with confirmation dialogs
+- **Responsive Design**: Works perfectly on mobile, tablet, and desktop
+- **Data Persistence**: All trips saved to localStorage
+- **Form Validation**: Comprehensive input validation with user-friendly errors
+
+#### 💰 Expense Tracking
+
+- **Add Expenses**: Create expenses with description, amount, category, and date
+- **Expense Categories**: Predefined categories (Accommodation, Food, Transportation, etc.)
+- **Trip Integration**: Link expenses to specific trips
+- **Budget Integration**: Automatically updates trip spending when expenses are added
+- **Expense Cards**: Clean, organized expense display with category badges
+- **Delete Expenses**: Remove expenses with confirmation dialogs
+- **Responsive Layout**: Works great on all devices
+
+#### 📊 Travel Reports
+
+- **Summary Reports**: Overview of all trips with key metrics and spending analysis
+- **Budget Analysis**: Detailed budget performance tracking for each trip
+- **Expense Analytics**: Category breakdowns and spending patterns with visual charts
+- **Performance Metrics**: Total trips, budgets, spending, and savings calculations
+- **Recent Trips**: Quick view of latest trips with performance indicators
+- **Visual Charts**: Interactive progress bars and category distribution charts
+- **Responsive Design**: Optimized layouts for mobile, tablet, and desktop
+
 #### 🎨 Modern UI/UX
 
 - **Responsive Design**: Mobile-first approach with tablet and desktop optimizations
@@ -43,11 +74,10 @@ A comprehensive web application for planning trips, tracking expenses, and manag
 
 ### 🚧 Coming Soon
 
-- **Trip Management**: Create and manage travel itineraries
-- **Expense Tracking**: Log and categorize travel expenses
-- **Budget Monitoring**: Real-time budget tracking and alerts
-- **Travel Reports**: Generate detailed spending reports
-- **Settings & Preferences**: User customization options
+- **Data Export**: Export trips and expenses to CSV/PDF
+- **Advanced Analytics**: Detailed spending analysis and trends
+- **Custom Categories**: User-defined expense categories
+- **Budget Alerts**: Real-time budget monitoring and notifications
 
 ## 🛠️ Technology Stack
 
@@ -95,44 +125,6 @@ A comprehensive web application for planning trips, tracking expenses, and manag
     ```bash
     pnpm build
     ```
-
-## 🌐 API Configuration
-
-### ExchangeRate-API
-
-- **Status**: ✅ Configured and working
-- **Rate Limit**: 1000 requests/month (free tier)
-- **Features**: Real-time exchange rates for 170+ currencies
-- **API Key**: Required - Get free key from [ExchangeRate-API](https://www.exchangerate-api.com/)
-- **Setup**:
-    1. Copy `.env.example` to `.env`
-    2. Get your API key from [ExchangeRate-API](https://www.exchangerate-api.com/)
-    3. Add your API key to `.env`:
-        ```bash
-        VITE_EXCHANGERATE_API_KEY=your_exchangerate_api_key_here
-        ```
-    4. Restart your development server
-
-### REST Countries API
-
-- **Status**: ✅ Configured and working
-- **Rate Limit**: Generous limits, no API key required
-- **Features**: Comprehensive country data and flags
-
-### Unsplash API (Optional)
-
-- **Status**: ✅ Configured and working
-- **Rate Limit**: 50 requests/hour (free tier)
-- **Features**: Beautiful destination images
-- **Setup**:
-    1. Copy `.env.example` to `.env`
-    2. Get your API key from [Unsplash Developers](https://unsplash.com/developers)
-    3. Add your access key to `.env`:
-        ```bash
-        VITE_UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
-        ```
-    4. Restart your development server
-- **Alternative**: Use the Settings page to configure your API key
 
 ## 📁 Project Structure
 

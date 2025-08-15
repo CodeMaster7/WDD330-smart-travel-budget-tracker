@@ -1,10 +1,9 @@
 /**
  * Settings Module
- * Manages user preferences and API configurations
- * Uses Single Responsibility Principle - this module only handles settings
+ * Manages user preferences and application settings
+ * this module only handles settings
  */
 
-import { setUnsplashApiKey } from './apiService.mjs';
 import { qs } from '../utils.mjs';
 
 /**
@@ -41,7 +40,6 @@ export class Settings {
     loadSettings() {
         const defaultSettings = {
             homeCurrency: 'USD',
-            unsplashApiKey: '',
             theme: 'light',
             notifications: true,
         };
@@ -76,14 +74,6 @@ export class Settings {
      */
     applySettings() {
         try {
-            // Apply Unsplash API key if set (prioritize settings over env var)
-            if (this.settings.unsplashApiKey) {
-                setUnsplashApiKey(this.settings.unsplashApiKey);
-            } else if (import.meta.env.VITE_UNSPLASH_ACCESS_KEY) {
-                // Use environment variable as fallback
-                setUnsplashApiKey(import.meta.env.VITE_UNSPLASH_ACCESS_KEY);
-            }
-
             // Apply theme
             document.body.className = `theme-${this.settings.theme}`;
         } catch (error) {
@@ -107,37 +97,9 @@ export class Settings {
                 </div>
 
                 <h2 class="settings__title">Settings</h2>
-                <p class="settings__description">Configure your preferences and API settings.</p>
+                <p class="settings__description">Configure your preferences and application settings.</p>
 
                 <form class="settings__form" id="settingsForm">
-                    <div class="settings__section">
-                        <h3 class="settings__section-title">API Configuration</h3>
-
-                        <div class="settings__group">
-                            <label for="unsplashApiKey" class="settings__label">
-                                Unsplash API Key
-                                <span class="settings__label-hint">(Optional - for destination images)</span>
-                            </label>
-                            <input
-                                type="password"
-                                id="unsplashApiKey"
-                                class="settings__input"
-                                placeholder="Enter your Unsplash API key"
-                                value="${this.settings.unsplashApiKey}"
-                            >
-                            <p class="settings__help">
-                                Get your free API key from
-                                <a href="https://unsplash.com/developers" target="_blank" rel="noopener">Unsplash Developers</a>
-                            </p>
-                            ${
-                                import.meta.env.VITE_UNSPLASH_ACCESS_KEY &&
-                                !this.settings.unsplashApiKey
-                                    ? '<p class="settings__env-notice">✅ Using API key from environment variable</p>'
-                                    : ''
-                            }
-                        </div>
-                    </div>
-
                     <div class="settings__section">
                         <h3 class="settings__section-title">Preferences</h3>
 
@@ -211,7 +173,6 @@ export class Settings {
      */
     saveSettingsFromForm() {
         try {
-            const unsplashApiKey = qs('#unsplashApiKey')?.value.trim();
             const homeCurrency = qs('#homeCurrency')?.value;
             const theme = qs('#theme')?.value;
             const notifications = qs('#notifications')?.checked;
@@ -230,7 +191,6 @@ export class Settings {
             // Update settings object
             this.settings = {
                 ...this.settings,
-                unsplashApiKey,
                 homeCurrency,
                 theme,
                 notifications,
@@ -262,7 +222,6 @@ export class Settings {
         ) {
             this.settings = {
                 homeCurrency: 'USD',
-                unsplashApiKey: '',
                 theme: 'light',
                 notifications: true,
             };

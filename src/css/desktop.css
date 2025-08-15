@@ -7,13 +7,11 @@
         max-width: 1140px;
     }
 
-    /* Keep alert readable on wide screens */
     .alert {
         max-width: 1140px;
         margin: 0 auto;
     }
 
-    /* Desktop nav: horizontal, no burger, same dark background */
     .site-header__menu {
         display: none;
     }
@@ -31,7 +29,6 @@
         box-shadow: none;
     }
 
-    /* Override mobile classes for desktop - higher specificity */
     .site-header .site-header__nav--mobile {
         display: none;
     }
@@ -47,5 +44,96 @@
         gap: 1rem;
         padding: 0.75rem 1rem;
         box-shadow: none;
+    }
+
+    /* Trip Management Desktop Styles */
+    .trips__list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-5);
+    }
+
+    .trips__header {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        align-items: center;
+    }
+
+    .trips__header > div {
+        text-align: left;
+    }
+
+    .modal__content {
+        max-width: 700px;
+        padding: var(--space-5);
+    }
+
+    .trip-card {
+        padding: var(--space-5);
+    }
+
+    .trip-card__header {
+        margin-bottom: var(--space-4);
+    }
+
+    .trip-card__title {
+        font-size: 1.5rem;
+    }
+
+    /* Expense Management Desktop Styles */
+    .expenses__list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-5);
+    }
+
+    .expenses__header {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        align-items: center;
+    }
+
+    .expenses__header > div {
+        text-align: left;
+    }
+
+    .expense-card {
+        padding: var(--space-5);
+    }
+
+    .expense-card__header {
+        margin-bottom: var(--space-4);
+    }
+
+    .expense-card__title {
+        font-size: 1.4rem;
+    }
+
+    /* Reports Desktop Styles */
+    .reports__metrics {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .reports__budget-overview {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .reports__summary {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--space-5);
+        align-items: start;
+    }
+
+    .reports__recent-trips {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .reports__analytics {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-5);
+        align-items: start;
     }
 }

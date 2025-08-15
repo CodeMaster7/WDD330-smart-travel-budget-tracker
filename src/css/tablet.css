@@ -20,13 +20,11 @@
         justify-self: start;
     }
 
-    /* Limit alert width on tablet to avoid full-width ribbons */
     .alert {
         max-width: 920px;
         margin: 0 auto;
     }
 
-    /* Tablet nav: show horizontal, hide burger, keep dark background */
     .site-header__menu {
         display: none;
     }
@@ -45,7 +43,6 @@
         box-shadow: none;
     }
 
-    /* Override mobile classes for tablet - higher specificity */
     .site-header .site-header__nav--mobile {
         display: none;
     }
@@ -57,5 +54,44 @@
     .site-header__link {
         display: inline-block;
         white-space: nowrap;
+    }
+
+    /* Trip Management Tablet Styles */
+    .trips__list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+
+    .modal__content {
+        max-width: 600px;
+        padding: var(--space-5);
+    }
+
+    .form__row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Expense Management Tablet Styles */
+    .expenses__list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+
+    /* Reports Tablet Styles */
+    .reports__metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reports__budget-overview {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .reports__nav {
+        gap: var(--space-4);
+    }
+
+    .reports__nav-btn {
+        padding: var(--space-3) var(--space-5);
+        font-size: 1.1rem;
     }
 }

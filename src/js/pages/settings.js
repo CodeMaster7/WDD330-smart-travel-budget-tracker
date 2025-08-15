@@ -12,7 +12,7 @@ root.innerHTML = `
         <form class="trip-form" id="settings-form">
             <label class="trip-form__label">
                 <span class="trip-form__label-text">Home Currency (e.g. USD)</span>
-                <input class="trip-form__input" type="text" name="homeCurrency" value="${settings.homeCurrency || 'USD'}" />
+                <input class="trip-form__input" type="text" name="homeCurrency" value="${settings.homeCurrency || 'USD'}">
             </label>
             <button class="trip-form__submit" type="submit">Save</button>
         </form>

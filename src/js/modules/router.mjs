@@ -7,6 +7,9 @@
 import { CurrencyConverter } from './currencyConverter.mjs';
 import { DestinationInfo } from './destinationInfo.mjs';
 import { Settings } from './settings.mjs';
+import { TripManager } from './tripManager.mjs';
+import { ExpenseManager } from './expenseManager.mjs';
+import { ReportManager } from './reportManager.mjs';
 
 /**
  * Router Class
@@ -171,87 +174,30 @@ export class Router {
     }
 
     /**
-     * Show trips page (placeholder)
+     * Show trips page
      */
     showTrips() {
-        const appContainer = document.getElementById('app');
-        if (!appContainer) return null;
-
-        appContainer.innerHTML = `
-      <div class="trips">
-        <div class="page-header">
-          <button class="back-btn" onclick="window.router.navigate('/')">
-            ← Back to Home
-          </button>
-        </div>
-
-        <h2 class="trips__title">Trip Management</h2>
-        <p class="trips__description">Create and manage your travel trips with budget tracking.</p>
-
-        <div class="trips__coming-soon">
-          <h3 class="trips__coming-soon-title">🚧 Coming Soon</h3>
-          <p class="trips__coming-soon-text">Trip management features are under development. Stay tuned!</p>
-        </div>
-      </div>
-    `;
-
-        return null;
+        // Create and store the trip manager instance globally for access from inline handlers
+        window.tripManager = new TripManager();
+        return window.tripManager;
     }
 
     /**
-     * Show expenses page (placeholder)
+     * Show expenses page
      */
     showExpenses() {
-        const appContainer = document.getElementById('app');
-        if (!appContainer) return null;
-
-        appContainer.innerHTML = `
-      <div class="expenses">
-        <div class="page-header">
-          <button class="back-btn" onclick="window.router.navigate('/')">
-            ← Back to Home
-          </button>
-        </div>
-
-        <h2 class="expenses__title">Expense Tracking</h2>
-        <p class="expenses__description">Track your travel expenses and stay within budget.</p>
-
-        <div class="expenses__coming-soon">
-          <h3 class="expenses__coming-soon-title">🚧 Coming Soon</h3>
-          <p class="expenses__coming-soon-text">Expense tracking features are under development. Stay tuned!</p>
-        </div>
-      </div>
-    `;
-
-        return null;
+        // Create and store the expense manager instance globally for access from inline handlers
+        window.expenseManager = new ExpenseManager();
+        return window.expenseManager;
     }
 
     /**
-     * Show reports page (placeholder)
+     * Show reports page
      */
     showReports() {
-        const appContainer = document.getElementById('app');
-        if (!appContainer) return null;
-
-        appContainer.innerHTML = `
-      <div class="reports">
-        <div class="page-header">
-          <button class="back-btn" onclick="window.router.navigate('/')">
-            ← Back to Home
-          </button>
-        </div>
-
-        <h2 class="reports__title">Travel Reports</h2>
-        <p class="reports__description">Generate detailed reports of your travel spending and budget analysis.</p>
-
-        <div class="reports__coming-soon">
-          <h3 class="reports__coming-soon-title">🚧 Coming Soon</h3>
-          <p class="reports__coming-soon-text">Reporting features are under development. Stay tuned!</p>
-        </div>
-      </div>
-    `;
-
-        return null;
+        window.reportManager = new ReportManager();
+        window.reportManager.init();
+        return window.reportManager;
     }
 
     /**
