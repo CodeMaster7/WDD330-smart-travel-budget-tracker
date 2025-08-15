@@ -37,9 +37,9 @@
 
 /* Override mobile classes for desktop */
 .site-header__nav--mobile {
-    display: none !important;
+    display: none;
 }
 
 .site-header__nav--desktop {
-    display: flex !important;
+    display: flex;
 }
