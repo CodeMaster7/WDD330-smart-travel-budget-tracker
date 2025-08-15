@@ -51,6 +51,7 @@ export default [
                 navigator: 'readonly',
                 console: 'readonly',
                 alert: 'readonly',
+                confirm: 'readonly',
                 FormData: 'readonly',
                 fetch: 'readonly',
                 localStorage: 'readonly',
@@ -58,6 +59,8 @@ export default [
                 module: 'readonly',
                 require: 'readonly',
                 process: 'readonly',
+                setTimeout: 'readonly',
+                clearTimeout: 'readonly',
             },
         },
 
