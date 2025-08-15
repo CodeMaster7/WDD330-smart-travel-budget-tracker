@@ -44,6 +44,15 @@
     box-shadow: none;
 }
 
+/* Override mobile classes for tablet */
+.site-header__nav--mobile {
+    display: none !important;
+}
+
+.site-header__nav--desktop {
+    display: flex !important;
+}
+
 .site-header__link {
     display: inline-block;
     white-space: nowrap;

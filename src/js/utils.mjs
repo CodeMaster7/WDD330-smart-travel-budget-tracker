@@ -115,10 +115,22 @@ function setupMobileNav() {
     const nav = document.getElementById('nav');
 
     if (btn && nav) {
-        // Only setup mobile nav on small screens
+        // Determine screen size and set appropriate classes
         const isMobile = window.innerWidth < 768;
+        const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+        const isDesktop = window.innerWidth >= 1024;
+
+        // Remove all responsive classes first
+        nav.classList.remove(
+            'site-header__nav--mobile',
+            'site-header__nav--desktop',
+        );
+        btn.classList.remove('site-header__menu--hidden');
 
         if (isMobile) {
+            // Mobile: dropdown navigation
+            nav.classList.add('site-header__nav--mobile');
+
             // Remove any existing listeners to prevent duplicates
             btn.removeEventListener('click', btn._navToggleHandler);
 
@@ -140,10 +152,19 @@ function setupMobileNav() {
                 }
             });
         } else {
-            // On larger screens, ensure menu is always visible and remove mobile handlers
+            // Tablet/Desktop: horizontal navigation
+            nav.classList.add('site-header__nav--desktop');
+            btn.classList.add('site-header__menu--hidden');
+
+            // Remove mobile handlers
             nav.classList.remove('site-header__nav--open');
             btn.removeEventListener('click', btn._navToggleHandler);
         }
+
+        // Add resize listener to handle screen size changes
+        window.addEventListener('resize', () => {
+            setupMobileNav();
+        });
     }
 }
 

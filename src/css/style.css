@@ -101,6 +101,10 @@ body {
   align-items: center;
 }
 
+.site-header__menu--hidden {
+  display: none;
+}
+
 .site-header__nav {
   display: none; /* Hidden by default */
   flex-direction: column;
@@ -111,6 +115,19 @@ body {
   background-color: var(--color-text);
   padding: var(--space-2);
   box-shadow: var(--shadow);
+}
+
+/* Force mobile behavior by default */
+.site-header__nav--mobile {
+  display: none;
+}
+
+.site-header__nav--mobile.site-header__nav--open {
+  display: flex;
+}
+
+.site-header__nav--desktop {
+  display: none;
 }
 
 .site-header__nav--open {

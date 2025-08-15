@@ -34,3 +34,12 @@
     padding: 0.75rem 1rem;
     box-shadow: none;
 }
+
+/* Override mobile classes for desktop */
+.site-header__nav--mobile {
+    display: none !important;
+}
+
+.site-header__nav--desktop {
+    display: flex !important;
+}
