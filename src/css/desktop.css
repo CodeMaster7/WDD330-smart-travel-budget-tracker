@@ -35,11 +35,11 @@
     box-shadow: none;
 }
 
-/* Override mobile classes for desktop */
-.site-header__nav--mobile {
+/* Override mobile classes for desktop - higher specificity */
+.site-header .site-header__nav--mobile {
     display: none;
 }
 
-.site-header__nav--desktop {
+.site-header .site-header__nav--desktop {
     display: flex;
 }

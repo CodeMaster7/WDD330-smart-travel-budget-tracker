@@ -117,7 +117,7 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Force mobile behavior by default */
+/* Mobile navigation classes */
 .site-header__nav--mobile {
   display: none;
 }
@@ -126,6 +126,7 @@ body {
   display: flex;
 }
 
+/* Desktop navigation classes - will be overridden by media queries */
 .site-header__nav--desktop {
   display: none;
 }

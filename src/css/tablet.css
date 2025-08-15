@@ -44,12 +44,12 @@
     box-shadow: none;
 }
 
-/* Override mobile classes for tablet */
-.site-header__nav--mobile {
+/* Override mobile classes for tablet - higher specificity */
+.site-header .site-header__nav--mobile {
     display: none;
 }
 
-.site-header__nav--desktop {
+.site-header .site-header__nav--desktop {
     display: flex;
 }
 
