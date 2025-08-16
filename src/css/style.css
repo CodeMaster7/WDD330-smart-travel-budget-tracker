@@ -161,10 +161,27 @@ main {
   color: black;
   padding: var(--space-3);
   margin-bottom: var(--space-3);
+  margin-top: var(--space-2);
   border-radius: var(--radius);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, margin 0.5s ease-out;
+}
+
+/* Add gap between consecutive alerts */
+.alert + .alert {
+  margin-top: var(--space-3);
+}
+
+.alert--removing {
+  opacity: 0;
+  transform: translateY(-10px);
+  margin-bottom: 0;
+  margin-top: 0;
+  pointer-events: none;
 }
 
 .alert__close {

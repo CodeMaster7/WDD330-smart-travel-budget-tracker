@@ -131,7 +131,7 @@ export class ReportManager {
         const summaryView = document.getElementById('summary-view');
         const totalTrips = this.trips.length;
         const totalBudget = this.trips.reduce(
-            (sum, trip) => sum + (trip.budget || 0),
+            (sum, trip) => sum + (trip.totalBudget || 0),
             0,
         );
         const totalSpent = this.trips.reduce(
@@ -210,7 +210,7 @@ export class ReportManager {
         // Calculate budget performance for each trip
         const budgetAnalysis = this.trips.map((trip) => {
             const spent = trip.spentHome || 0;
-            const budget = trip.budget || 0;
+            const budget = trip.totalBudget || 0;
             const percentage = this.calculatePercentage(spent, budget);
             const status =
                 percentage > 100 ? 'over' : percentage > 90 ? 'near' : 'under';
@@ -319,7 +319,7 @@ export class ReportManager {
 
     renderTripSummary(trip) {
         const spent = trip.spentHome || 0;
-        const budget = trip.budget || 0;
+        const budget = trip.totalBudget || 0;
         const percentage = this.calculatePercentage(spent, budget);
         const status =
             percentage > 100 ? 'over' : percentage > 90 ? 'near' : 'under';
@@ -327,7 +327,7 @@ export class ReportManager {
         return `
             <div class="reports__trip-summary">
                 <div class="reports__trip-info">
-                    <h4 class="reports__trip-title">${trip.destination || 'Unnamed Trip'}</h4>
+                    <h4 class="reports__trip-title">${trip.name || trip.destination || 'Unnamed Trip'}</h4>
                     <p class="reports__trip-dates">${this.formatDate(trip.startDate)} - ${this.formatDate(trip.endDate)}</p>
                 </div>
                 <div class="reports__trip-budget">
@@ -346,12 +346,12 @@ export class ReportManager {
     renderBudgetTrip(trip) {
         const statusClass = `reports__budget-trip--${trip.status}`;
         const spent = trip.spentHome || 0;
-        const budget = trip.budget || 0;
+        const budget = trip.totalBudget || 0;
 
         return `
             <div class="reports__budget-trip ${statusClass}">
                 <div class="reports__budget-trip-info">
-                    <h4 class="reports__budget-trip-title">${trip.destination || 'Unnamed Trip'}</h4>
+                    <h4 class="reports__budget-trip-title">${trip.name || trip.destination || 'Unnamed Trip'}</h4>
                     <p class="reports__budget-trip-dates">${this.formatDate(trip.startDate)} - ${this.formatDate(trip.endDate)}</p>
                 </div>
                 <div class="reports__budget-trip-amounts">

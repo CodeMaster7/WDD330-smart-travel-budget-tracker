@@ -46,7 +46,11 @@ export async function loadTemplate(path) {
     const response = await fetch(path);
 
     if (!response.ok) {
-        throw new Error(`HTTP error ! Status: ${response.status}`);
+        throw new Error(`HTTP error ! Status: $ {
+                response.status
+            }
+
+            `);
     }
 
     return response.text();
@@ -85,11 +89,47 @@ export function alertMessage(message, scroll = true) {
         ) {
             e.preventDefault();
             e.stopPropagation();
-            this.remove();
+
+            // Add removing class to trigger animation
+            this.classList.add('alert--removing');
+
+            // Remove element after animation completes
+            setTimeout(
+                () => {
+                    if (this.parentNode) {
+                        this.remove();
+                    }
+                },
+
+                500,
+            ); // Match the CSS transition duration
         }
     });
     main.prepend(alert);
     if (scroll) window.scrollTo(0, 0);
+
+    // Auto-dismiss alert after 5 seconds
+    setTimeout(
+        () => {
+            if (alert.parentNode) {
+                // Add removing class to trigger animation
+                alert.classList.add('alert--removing');
+
+                // Remove element after animation completes
+                setTimeout(
+                    () => {
+                        if (alert.parentNode) {
+                            alert.remove();
+                        }
+                    },
+
+                    500,
+                ); // Match the CSS transition duration
+            }
+        },
+
+        5000,
+    );
 }
 
 // load header and footer from public/partials
