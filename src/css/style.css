@@ -362,8 +362,8 @@ main {
 }
 
 .home__feature-btn {
-  background-color: var(--color-secondary);
-  color: black;
+  background-color: #1976D2;
+  color: white;
   border: none;
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius);
